@@ -1,0 +1,2 @@
+#!/bin/bash
+java -jar out/artifacts/JVM_jar/JVM.jar $@
