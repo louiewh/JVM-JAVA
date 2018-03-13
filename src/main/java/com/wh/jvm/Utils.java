@@ -65,7 +65,7 @@ public class Utils {
 
     public static void writeData(String name, String string) {
 
-        File file = new File(name);
+        File file = new File("target/"+name);
         System.out.println(file.getAbsolutePath());
         try {
             FileOutputStream stream = new FileOutputStream(file);
@@ -79,12 +79,10 @@ public class Utils {
     public static Gson getGson(){
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setExclusionStrategies(new ExclusionStrategy() {
-            @Override
             public boolean shouldSkipField(FieldAttributes f) {
                 return f.getName().contains("constantPool");
             }
 
-            @Override
             public boolean shouldSkipClass(Class<?> incomingClass) {
                 return false;
             }

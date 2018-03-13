@@ -19,7 +19,6 @@ public class ClassLoaderDirEntry implements ClassLoaderEntry {
         mClassFilePath = path;
     }
 
-    @Override
     public byte[] readClass(String className) {
             return readByteArray(className);
     }

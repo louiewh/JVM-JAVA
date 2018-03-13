@@ -19,7 +19,7 @@ public class Main {
             "java",
             "-version",
             "-help",
-            "-classpath", "/Users/DaWang/IdeaProjects/JVM-Java/out/production/JVM-Java",
+            "-classpath", "./target/classes",
     };
 
     public static void main(String[] args) {
