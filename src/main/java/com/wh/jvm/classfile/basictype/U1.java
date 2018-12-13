@@ -8,9 +8,9 @@ import java.io.InputStream;
  */
 public class U1 {
 
-    private byte value;
+    private short value;
 
-    public U1(byte value) {
+    public U1(short value) {
         this.value = value;
     }
 
@@ -21,17 +21,15 @@ public class U1 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        U1 u1 = new U1(bytes[0]);
+        U1 u1 = new U1((short) (bytes[0] & 0xFF));
         return u1;
     }
 
     public byte getValue() {
-        return value;
+        return (byte) value;
     }
 
     public String getHexValue() {
         return Integer.toHexString(value & 0xFF);
     }
-
-
 }

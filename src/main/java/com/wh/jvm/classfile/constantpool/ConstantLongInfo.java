@@ -27,4 +27,8 @@ public class ConstantLongInfo extends ConstantPoolInfo {
                 "bytesValue=" + bytesValue +
                 '}';
     }
+
+    public long getBytesValue(){
+        return bytesValue;
+    }
 }

@@ -1,10 +1,10 @@
-package com.wh.jvm.classloader.entry;
+package com.wh.jvm.classpath.entry;
 
 /**
  * Created by louie.wang on 2017/12/11.
  */
 
-public interface ClassLoaderEntry {
+public interface ClassPathEntry {
 
     byte[] readClass(String className);
 

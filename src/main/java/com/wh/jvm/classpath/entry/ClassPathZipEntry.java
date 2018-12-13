@@ -1,4 +1,4 @@
-package com.wh.jvm.classloader.entry;
+package com.wh.jvm.classpath.entry;
 
 import com.wh.jvm.Utils;
 import org.apache.commons.io.IOUtils;
@@ -14,14 +14,14 @@ import java.util.zip.ZipInputStream;
  * Created by louie.wang on 2017/12/12.
  */
 
-public class ClassLoaderZipEntry implements ClassLoaderEntry {
+public class ClassPathZipEntry implements ClassPathEntry {
     private String mJarPath;
 
-    public ClassLoaderZipEntry(String jarPath){
+    public ClassPathZipEntry(String jarPath){
         mJarPath = jarPath;
     }
 
-    @Override
+
     public byte[] readClass(String className) {
         return readClassFromJar(className);
     }

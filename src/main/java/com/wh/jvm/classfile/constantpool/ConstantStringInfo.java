@@ -8,7 +8,7 @@ import java.io.InputStream;
  */
 public class ConstantStringInfo extends ConstantPoolInfo {
 
-    private short index;
+    private U2 index;
 
     public ConstantStringInfo(byte tag) {
         setTag(tag);
@@ -17,7 +17,7 @@ public class ConstantStringInfo extends ConstantPoolInfo {
     @Override
     public void read(InputStream inputStream) {
         U2 indexU2 = U2.read(inputStream);
-        this.index = indexU2.getValue();
+        this.index = indexU2;
     }
 
     @Override
@@ -25,5 +25,9 @@ public class ConstantStringInfo extends ConstantPoolInfo {
         return "ConstantStringInfo{" +
                 "index=" + index +
                 '}';
+    }
+
+    public U2 getIndex() {
+        return index;
     }
 }

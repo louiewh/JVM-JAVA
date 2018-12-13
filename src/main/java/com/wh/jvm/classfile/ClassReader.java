@@ -62,6 +62,7 @@ public class ClassReader {
         ConstantPool constantPool = readConstantPool(inputStream,
                 (short) (classFile.constantPoolCount.getValue() - 1));
         classFile.cpInfo = constantPool.getCpInfo();
+        classFile.mConstantPool = constantPool;
         classFile.accessFlags = U2.read(inputStream);
         classFile.thisClass = U2.read(inputStream);
         classFile.superClass = U2.read(inputStream);
@@ -202,7 +203,7 @@ public class ClassReader {
         }
 
         ConstantClassInfo constantClassInfo = (ConstantClassInfo) constantPool.getCpInfo()[constantClassInfoIndex - 1];
-        short index = constantClassInfo.getIndex();
+        short index = constantClassInfo.getIndex().getValue();
         ConstantUtf8Info constantUtf8Info = ((ConstantUtf8Info) (constantPool.getCpInfo()[index - 1]));
         return constantUtf8Info.getValue();
     }

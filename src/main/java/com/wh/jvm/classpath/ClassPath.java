@@ -1,21 +1,21 @@
-package com.wh.jvm.classloader;
+package com.wh.jvm.classpath;
 
 import com.wh.jvm.Utils;
-import com.wh.jvm.classloader.entry.ClassLoaderEntry;
-import com.wh.jvm.classloader.entry.ClassLoaderEntryFactory;
+import com.wh.jvm.classpath.entry.ClassPathEntry;
+import com.wh.jvm.classpath.entry.ClassPathEntryFactory;
 
 import java.io.File;
 import java.io.FilenameFilter;
 
-public class ClassLoader extends java.lang.ClassLoader{
+public class ClassPath extends java.lang.ClassLoader{
     private String mJavaHome;
     private String mCpOption;
 
-    private ClassLoaderEntry mBootClassPathEntry;
-    private ClassLoaderEntry mExtClassPathEntry;
-    private ClassLoaderEntry mUserClassPathEntry;
+    private ClassPathEntry mBootClassPathEntry;
+    private ClassPathEntry mExtClassPathEntry;
+    private ClassPathEntry mUserClassPathEntry;
 
-    public ClassLoader(String cpOption){
+    public ClassPath(String cpOption){
         mJavaHome = System.getProperty("java.home");
         mCpOption  = cpOption;
         parseClass();
@@ -23,13 +23,13 @@ public class ClassLoader extends java.lang.ClassLoader{
         System.err.println(System.getProperty("java.home"));
     }
 
-    public ClassLoaderEntry parseClassByPath(String jarPath){
+    public ClassPathEntry parseClassByPath(String jarPath){
 
         if(jarPath == null){
             return null;
         }
 
-        return ClassLoaderEntryFactory.newClassPathEntry(jarPath);
+        return ClassPathEntryFactory.newClassPathEntry(jarPath);
     }
 
     private void parseClass(){

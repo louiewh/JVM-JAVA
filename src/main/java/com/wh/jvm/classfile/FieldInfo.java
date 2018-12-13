@@ -14,15 +14,7 @@ import java.util.Arrays;
 /**
  * Created by chenyangli.
  */
-public class FieldInfo {
-
-    private ConstantPool constantPool;
-
-    private short accessFlags;
-    private short nameIndex;
-    private short descriptorIndex;
-    private short attributesCount;
-    private BasicAttributeInfo[] attributes;
+public class FieldInfo extends MemberAttr{
 
     public FieldInfo(ConstantPool constantPool) {
         this.constantPool = constantPool;
@@ -50,7 +42,7 @@ public class FieldInfo {
     @Override
     public String toString() {
         return "FieldInfo{" +
-                "accessFlags=" + accessFlags + ": " + AccessFlags.getFormattedAccessFlags(new FieldAccessFlags(), accessFlags) +
+                "accessFlags=" + accessFlags + ": " + AccessFlags.getFormattedAccessFlags(new FieldAccessFlags(), (short) accessFlags) +
                 ", nameIndex=" + nameIndex + " [name = " +
                 ((ConstantUtf8Info) (constantPool.getCpInfo()[nameIndex - 1])).getValue() + "]" +
                 ", descriptorIndex=" + descriptorIndex + " [descriptor = " +

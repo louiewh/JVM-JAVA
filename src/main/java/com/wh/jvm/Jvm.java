@@ -1,7 +1,7 @@
 package com.wh.jvm;
 
 import com.wh.jvm.classfile.ClassReader;
-import com.wh.jvm.classloader.ClassLoader;
+import com.wh.jvm.classpath.ClassPath;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -19,14 +19,14 @@ public class Jvm {
     String mVersion = "0.0.1";
     String mCp;
     String mXJre;
-    public ClassLoader mClassLoader;
+    public ClassPath mClassPath;
     public ClassReader mClassReader;
 
     public void startJvm(String [] args){
 
         System.err.println(TAG+"startJvm !!!");
         parseCmd(args);
-        mClassLoader = new ClassLoader(mCp);
+        mClassPath = new ClassPath(mCp);
         mClassReader = new ClassReader();
     }
 
@@ -65,7 +65,7 @@ public class Jvm {
     }
 
     byte[] readClass(String classname){
-        byte[] bytesClass = mClassLoader.readClass(classname);
+        byte[] bytesClass = mClassPath.readClass(classname);
         System.err.println(classname);
         System.err.println(Utils.ByteArrayToHexString(bytesClass));
 

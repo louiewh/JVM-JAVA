@@ -1,4 +1,4 @@
-package com.wh.jvm.classloader.entry;
+package com.wh.jvm.classpath.entry;
 
 
 import org.apache.commons.io.IOUtils;
@@ -12,10 +12,10 @@ import java.io.IOException;
  * Created by louie.wang on 2017/12/11.
  */
 
-public class ClassLoaderDirEntry implements ClassLoaderEntry {
+public class ClassPathDirEntry implements ClassPathEntry {
     String mClassFilePath;
 
-    public ClassLoaderDirEntry(String path){
+    public ClassPathDirEntry(String path){
         mClassFilePath = path;
     }
 

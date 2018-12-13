@@ -1,4 +1,4 @@
-package com.wh.jvm.classloader.entry;
+package com.wh.jvm.classpath.entry;
 
 
 import java.io.File;
@@ -9,20 +9,19 @@ import java.util.List;
  * Created by louie.wang on 2017/12/12.
  */
 
-public class ClassLoaderComponentEntry implements ClassLoaderEntry {
+public class ClassPathComponentEntry implements ClassPathEntry {
 
     private String mJarPath;
-    private List<ClassLoaderEntry> mEntry;
-    public ClassLoaderComponentEntry(String jarPathList) {
+    private List<ClassPathEntry> mEntry;
+    public ClassPathComponentEntry(String jarPathList) {
         mJarPath = jarPathList;
         mEntry = new ArrayList();
         listPath( );
     }
 
-    @Override
     public byte[] readClass(String className) {
         byte[] bytes = null;
-        for (ClassLoaderEntry entry: mEntry) {
+        for (ClassPathEntry entry: mEntry) {
             bytes = entry.readClass(className);
             if(bytes != null){
                 return bytes;
@@ -39,9 +38,9 @@ public class ClassLoaderComponentEntry implements ClassLoaderEntry {
             File f = new File(file);
 
             if (f.isFile() && (file.endsWith(".jar") || file.endsWith(".JAR"))) {
-                mEntry.add(new ClassLoaderZipEntry(f.getAbsolutePath()));
+                mEntry.add(new ClassPathZipEntry(f.getAbsolutePath()));
             } else if (f.isDirectory()){
-                mEntry.add(new ClassLoaderDirEntry(file));
+                mEntry.add(new ClassPathDirEntry(file));
             }
         }
     }

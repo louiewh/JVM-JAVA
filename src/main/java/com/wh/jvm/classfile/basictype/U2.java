@@ -26,7 +26,7 @@ public class U2 {
             value <<= 8;
             value |= bytes[i] & 0xFF;
         }
-        U2 u2 = new U2((short) (value & 0xFFFF));
+        U2 u2 = new U2((short) (value & 0xFF));
         return u2;
     }
 

@@ -33,11 +33,11 @@ public class Utils {
 
     public static void printByteArray(byte[] bytes){
         if(bytes != null){
-            System.err.println("printByteArray");
+            Utils.errPrintln("printByteArray");
             for (byte b: bytes) {
                 System.err.print(b);
             }
-            System.err.println("");
+            Utils.errPrintln("");
         }
 
     }
@@ -89,5 +89,15 @@ public class Utils {
         });
 
         return gsonBuilder.create();
+    }
+
+    public static void outPrintln(String x){
+        System.out.println(x);
+        System.out.flush();
+    }
+
+    public static void errPrintln(String x){
+        System.err.println(x);
+        System.err.flush();
     }
 }

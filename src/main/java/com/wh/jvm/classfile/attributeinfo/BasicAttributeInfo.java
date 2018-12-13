@@ -1,6 +1,5 @@
 package com.wh.jvm.classfile.attributeinfo;
 
-import com.google.gson.annotations.Expose;
 import com.wh.jvm.classfile.constantpool.ConstantPool;
 import com.wh.jvm.classfile.constantpool.ConstantPoolInfo;
 import com.wh.jvm.classfile.constantpool.ConstantUtf8Info;
@@ -94,7 +93,7 @@ public class BasicAttributeInfo {
         this.attributeNameIndex = attributeNameIndex;
     }
 
-    public long getAttributeLength() {
+    public int getAttributeLength() {
         return attributeLength;
     }
 

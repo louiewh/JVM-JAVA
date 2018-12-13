@@ -123,14 +123,14 @@ public class Main {
     }
 
     private static void testInterpret(Jvm jvm){
+
         InputStream inputStreamJvm = new ByteArrayInputStream(jvm.readClass("com.wh.jvm.Jvm"));
-
         ClassFile classFile = jvm.mClassReader.read(inputStreamJvm);
-
         int len = classFile.methods.length;
         ConstantPoolInfo[] constantPool = classFile.cpInfo;
         MethodInfo[] methodInfoArray = classFile.methods;
         MethodInfo methodInfoFind = null;
+        System.err.println("\ntestInterpret :");
         for(int i = 0; i < len; i++){
             MethodInfo methodInfo = methodInfoArray[i];
             ConstantUtf8Info utf8Info = (ConstantUtf8Info) constantPool[methodInfo.nameIndex -1];

@@ -27,4 +27,8 @@ public class ConstantFloatInfo extends ConstantPoolInfo {
                 "bytesValue=" + bytesValue +
                 '}';
     }
+
+    public float getBytesValue(){
+        return bytesValue;
+    }
 }

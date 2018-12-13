@@ -13,15 +13,8 @@ import java.util.Arrays;
 /**
  * Created by chenyangli.
  */
-public class MethodInfo {
+public class MethodInfo extends MemberAttr{
 
-    private ConstantPool constantPool;
-
-    public short accessFlags;
-    public short nameIndex;
-    public short descriptorIndex;
-    public short attributesCount;
-    public BasicAttributeInfo[] attributes;
 
     public MethodInfo(ConstantPool constantPool) {
         this.constantPool = constantPool;
@@ -40,8 +33,7 @@ public class MethodInfo {
         for (int i = 0; i < attributesCount; i++) {
             U2 attributeNameIndexU2 = U2.read(inputStream);
             short attributeNameIndex = attributeNameIndexU2.getValue();
-            BasicAttributeInfo basicAttributeInfo = BasicAttributeInfo.newAttributeInfo(constantPool,
-                    attributeNameIndex);
+            BasicAttributeInfo basicAttributeInfo = BasicAttributeInfo.newAttributeInfo(constantPool, attributeNameIndex);
             basicAttributeInfo.read(inputStream);
             attributes[i] = basicAttributeInfo;
         }
@@ -60,7 +52,7 @@ public class MethodInfo {
     @Override
     public String toString() {
         return "MethodInfo{" +
-                "accessFlags=" + accessFlags + ": " + AccessFlags.getFormattedAccessFlags(new MethodAccessFlags(), accessFlags) +
+                "accessFlags=" + accessFlags + ": " + AccessFlags.getFormattedAccessFlags(new MethodAccessFlags(), (short) accessFlags) +
                 ", nameIndex=" + nameIndex + " [name = " +
                 ((ConstantUtf8Info) (constantPool.getCpInfo()[nameIndex - 1])).getValue() + "]" +
                 ", descriptorIndex=" + descriptorIndex + " [descriptor = " +

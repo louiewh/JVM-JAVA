@@ -10,7 +10,7 @@ import java.io.InputStream;
  */
 public class ConstantClassInfo extends ConstantPoolInfo{
 
-    private short index;
+    private U2 index;
 
     public ConstantClassInfo(byte tag) {
         setTag(tag);
@@ -19,17 +19,17 @@ public class ConstantClassInfo extends ConstantPoolInfo{
     @Override
     public void read(InputStream inputStream) {
         U2 u2 = U2.read(inputStream);
-        this.index = u2.getValue();
+        this.index = u2;
     }
 
     @Override
     public String toString() {
         return "ConstantClassInfo{" +
-                "index=" + index +
+                "index=" + index.getValue() +
                 '}';
     }
 
-    public short getIndex() {
+    public U2 getIndex() {
         return index;
     }
 }

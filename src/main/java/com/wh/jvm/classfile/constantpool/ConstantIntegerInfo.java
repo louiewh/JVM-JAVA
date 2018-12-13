@@ -27,4 +27,8 @@ public class ConstantIntegerInfo extends ConstantPoolInfo {
                 "bytesValue=" + bytesValue +
                 '}';
     }
+
+    public int getBytesValue(){
+        return bytesValue;
+    }
 }

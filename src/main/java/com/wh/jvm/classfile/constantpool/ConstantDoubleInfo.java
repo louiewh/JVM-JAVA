@@ -28,4 +28,8 @@ public class ConstantDoubleInfo extends ConstantPoolInfo {
                 "bytesValue=" + bytesValue +
                 '}';
     }
+
+    public double getBytesValue() {
+        return bytesValue;
+    }
 }
